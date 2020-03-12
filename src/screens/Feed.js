@@ -10,6 +10,7 @@ export default class Feed extends Component {
           onPress={() => this.props.navigation.navigate("Detail")}
         />
           <Text>abc</Text>
+          
       </View>
     );
   }
