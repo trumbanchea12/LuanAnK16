@@ -1,30 +1,3 @@
-<<<<<<< HEAD:src/screens/drawer/screen3.js
-import React, { Component } from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-export default class screen3 extends Component {
-    constructor(props){
-        super(props);
-        this.state =
-        {
-        taikhoan:'',
-        matkhau:'', 
-        dk:'',   
-        };
-    }
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>login</Text>
-                <TextInput style={styles.user} onChangeText={ (taikhoan)=> this.setState({taikhoan}) } >
-                </TextInput>
-                <TextInput style={styles.pass} onChangeText={ (matkhau)=> this.setState({matkhau}) }>
-                </TextInput>
-                <TouchableOpacity onPress={() => {} }><Text style={styles.buttontext}>đăng ký</Text></TouchableOpacity>
-            </View>
-          
-        )
-    }
-=======
 import React, { Component } from "react";
 import {
   View,
@@ -107,41 +80,78 @@ export default class DangNhap extends Component {
       </View>
     );
   }
->>>>>>> 7dc81d578a56ca88929850f6f1e2dbc2b677ec3d:src/screens/drawer/DangNhap.js
 }
-const styles= StyleSheet.create({
-    container:{
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-    },
-    user:{
-        margin: 15,
-        height: 40,
-        width: 300,
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 15,
-    } ,
-    pass:{
-        height: 40,
-        width: 300,
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 15,
-    },
-    button:{
-        height: 40,
-        width: 300,
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 15,
-    },
-    buttontext:{
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+    backgroundColor: "azure",
+    paddingHorizontal: 30,
+    paddingVertical: 100
+  },
+  caption: {
+    fontWeight: "bold",
+    fontSize: 32,
+    color: "green"
+  },
+  user: {
+    paddingLeft: 45,
+    paddingRight: 15,
+    height: 40,
+    width: 300,
+    borderColor: "green",
+    borderWidth: 1,
+    borderRadius: 15
+  },
+  pass: {
+    paddingLeft: 45,
+    paddingRight: 15,
+    height: 40,
+    width: 300,
+    borderColor: "green",
+    borderWidth: 1,
+    borderRadius: 15
+  },
+  button: {
+    margin: 15,
+    height: 50,
+    width: 300,
+    borderColor: "green",
+    borderWidth: 1,
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttontext: {
+    borderColor: "green",
+    color: "green",
+    fontSize: 25
+  },
+  active: {
+    backgroundColor: "green"
+  },
+  icon: {
+    position: "absolute",
+    top: 14,
+    left: 20
+  },
+  inputcontainer: {
+    marginTop: 10,
+    marginHorizontal: 20
+  },
+  btneye: {
+    position: "absolute",
+    top: 14,
+    right: 20
+  },
+  acc: {
+    margin: 10,
+    textDecorationLine: "underline",
+    color: "blue"
+  },
+  add: {
+    marginTop: 20,
+    flexDirection: "row"
+  }
 });
