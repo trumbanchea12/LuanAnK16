@@ -9,7 +9,10 @@ import Detail from "./src/screens/Detail";
 
 import Screen1 from "./src/screens/drawer/screen1.js";
 import Screen2 from "./src/screens/drawer/screen2.js";
-import Screen3 from "./src/screens/drawer/screen3.js";
+
+import StackLogin from "./src/screens/navigation/StackLogin"
+import DangNhap from "./src/screens/drawer/DangNhap.js";
+import DanngKy from "./src/screens/drawer/DangKy.js";
 
 import Tabs1 from "./src/screens/tabs/tab1";
 import Tabs2 from "./src/screens/tabs/tab2";
@@ -61,7 +64,7 @@ class Drawers extends Component {
         <Drawer.Screen name="Home" component={HomeStack} />
         <Drawer.Screen name="contacts" component={Screen1} />
         <Drawer.Screen name="Favarites" component={Screen2} />
-        <Drawer.Screen name="Login" component={Screen3} />
+        <Drawer.Screen name="Đăng nhập/đăng ký" component={StackLogin} />
       </Drawer.Navigator>
     );
   }
