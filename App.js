@@ -3,6 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 import Feed from "./src/screens/Feed";
 import Detail from "./src/screens/Detail";
