@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 // Các component con
-import Hang from '.../component/Hang.js';
+import Hang from '../../component/Hang.js';
 
 const Stack = createStackNavigator();
 

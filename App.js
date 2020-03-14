@@ -18,12 +18,8 @@ import Tabs1 from "./src/screens/tabs/tab1";
 import Tabs2 from "./src/screens/tabs/tab2";
 import Tabs3 from "./src/screens/tabs/tab3";
 
-<<<<<<< HEAD
-import Ionicons from 'react-native-vector-icons/Ionicons';
-=======
 // Stack Hàng
 import HangHoa from './src/screens/navigation/StackHang';
->>>>>>> d2e6e591cd04285e41fb3c46897c9de2c280c1ab
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -83,13 +79,8 @@ export default class Tab extends Component {
       <NavigationContainer>
         <Tabs.Navigator>
           <Stack.Screen name="Home" component={Drawers} />
-<<<<<<< HEAD
-          <Stack.Screen name="Search" component={Tabs2} />
-          <Stack.Screen name="Tôi" component={Tabs3} />
-=======
           <Stack.Screen name="Hàng" component={HangHoa} />
           <Stack.Screen name="Cá nhân" component={Tabs3} />
->>>>>>> d2e6e591cd04285e41fb3c46897c9de2c280c1ab
         </Tabs.Navigator>
       </NavigationContainer>
     );
