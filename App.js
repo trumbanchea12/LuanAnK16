@@ -75,7 +75,45 @@ export default class Tab extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Tabs.Navigator>
+        <Tabs.Navigator
+          screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            if (route.name === 'Home') {
+              return (
+                <HomeIconWithBadge
+                  name={
+                    focused
+                      ? 'ios-home'
+                      : 'md-home'
+                  }
+                  size={size}
+                  color={color}
+                />
+              );
+            } else if (route.name === 'Hàng') {
+              return (
+                <Ionicons
+                  name={focused ? 'md-cart' : 'md-cart'}
+                  size={size}
+                  color={color}
+                />
+              );
+            }else if (route.name === 'Cá nhân') {
+              return (
+                <Ionicons
+                  name={focused ? 'md-person' : 'md-person'}
+                  size={size}
+                  color={color}
+                />
+              );
+          }
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+        }}
+        >
           <Stack.Screen name="Home" component={Drawers} />
           <Stack.Screen name="Hàng" component={HangHoa} />
           <Stack.Screen name="Cá nhân" component={Tabs3} />
