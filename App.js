@@ -19,9 +19,8 @@ import Tabs1 from "./src/screens/tabs/tab1";
 import Tabs2 from "./src/screens/tabs/tab2";
 import Tabs3 from "./src/screens/tabs/tab3";
 
-// Component
-import Hang from './src/component/Hang';
-
+// Stack Hàng
+import HangHoa from './src/screens/navigation/StackHang';
 
 // ================================
 const Drawer = createDrawerNavigator();
@@ -156,7 +155,7 @@ export default class Tab extends Component {
         }}
         >
           <Stack.Screen name="Home" component={Drawers} />
-          <Stack.Screen name="Hàng" component={Hang} />
+          <Stack.Screen name="Hàng" component={HangHoa} />
           <Stack.Screen name="Cá nhân" component={Tabs3} />
         </Tabs.Navigator>
       </NavigationContainer>

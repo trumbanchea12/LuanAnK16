@@ -26,6 +26,10 @@ export default class Hang extends Component {
                 "https://source.unsplash.com/1024x768/?girl",
                 "https://source.unsplash.com/1024x768/?tree",
             ],
+            data: [],
+            imgSanPham : [],
+            isLoading: true,
+            refresh: false,
         }
     }
 
@@ -36,8 +40,34 @@ export default class Hang extends Component {
     };
 
 
+
+    componentDidMount() {
+        Api.get('products')
+        .then((response) => response)
+        .then((responseJson) => {
+            this.setState({
+                isLoading: false,
+                data : responseJson,
+                
+            }, () => {
+                console.log(responseJson);
+            })
+            
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
+    }
+
     render() {
-        
+        if (this.state.isLoading) {
+            return (
+                <View style={{ flex: 1, padding: 20, marginTop: 300 }}>
+                    <ActivityIndicator />
+                </View>
+            )
+        }
 
         const { search } = this.state;
 
@@ -50,50 +80,65 @@ export default class Hang extends Component {
                         value={search}
                         lightTheme
                         autoCorrect={false}
-                        containerStyle={{width: "80%",  }}
+                        containerStyle={{ width: "80%", }}
                     />
-                    <View style = { styles.shopcart}>
-                    <TouchableOpacity
-                        onPress = {() => {
-                            console.log("Giỏ hàng")
-                        }}
-                    >
-                    <Icon
-                        underlayColor
-                        name='ios-cart'
-                        type='ionicon'
-                        color='#f1582e'
-                        size = {30}
-                    />
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress = {() => {
-                            console.log("Tin nhắn")
-                        }}
-                    >
-                    <Icon
-                        underlayColor='none'
-                        name='ios-chatboxes'
-                        type='ionicon'
-                        color='#f1582e'
-                        size = {30}
-                        iconStyle = {styles.icon}
-                    />  
-                    </TouchableOpacity>
+                    <View style={styles.shopcart}>
+                        <TouchableOpacity
+                            onPress={() => {
+                                console.log("Giỏ hàng")
+                            }}
+                        >
+                            <Icon
+                                name='ios-cart'
+                                type='ionicon'
+                                color='#f1582e'
+                                size={30}
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => {
+                                console.log("Tin nhắn")
+                            }}
+                        >
+                            <Icon
+                                underlayColor='none'
+                                name='ios-chatboxes'
+                                type='ionicon'
+                                color='#f1582e'
+                                size={30}
+                                iconStyle={styles.icon}
+                            />
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <ScrollView>
-                <SliderBox images={this.state.images}
-                    sliderBoxHeight={150}
-                    onCurrentImagePressed={
-                        index => console.warn(`image ${index} pressed`)
-                    }
-                    dotColor="#FFFFFF"
-                    inactiveDotColor="#90A4AE"
-                    paginationBoxVerticalPadding={20}
-                    autoplay
-                    circleLoop
-                />
+                    <SliderBox images={this.state.images}
+                        sliderBoxHeight={150}
+                        onCurrentImagePressed={
+                            index => console.warn(`image ${index} pressed`)
+                        }
+                        dotColor="#FFFFFF"
+                        inactiveDotColor="#90A4AE"
+                        paginationBoxVerticalPadding={20}
+                        autoplay
+                        circleLoop
+                    />
+                    <FlatList
+                        data={this.state.data}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity>
+                                <ItemHang 
+                                id={item.sku} 
+                                img={item.images[0].src} 
+                                name={item.name} 
+                                price={item.regular_price} 
+                                pricesale={item.sale_price}
+                                stock = {item.stock_quantity} />
+                            </TouchableOpacity>
+                            
+                        )}
+                        keyExtractor={item => item.id.toString()}
+                    />
                 </ScrollView>
             </View>
         )
@@ -111,11 +156,7 @@ const styles = StyleSheet.create({
     searchbar: {
         width: '80%'
     },
-<<<<<<< HEAD
     shopcart: {
-=======
-    shopcart :{
->>>>>>> 384342a684741b2d3b11f8e294bd4bb2441a5e56
         flexDirection: 'row',
         flex: 1,
         alignItems: 'center',
@@ -124,11 +165,7 @@ const styles = StyleSheet.create({
         paddingTop: 6,
         backgroundColor: '#e1e5ea'
     },
-<<<<<<< HEAD
     icon: {
-=======
-    icon:{
->>>>>>> 384342a684741b2d3b11f8e294bd4bb2441a5e56
         paddingLeft: 13
     }
 });
