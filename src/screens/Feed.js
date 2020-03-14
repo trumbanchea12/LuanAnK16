@@ -14,7 +14,10 @@ export default class Feed extends Component {
           title="open drawer"
           onPress={() => this.props.navigation.openDrawer()}
         />
+<<<<<<< HEAD
           
+=======
+>>>>>>> d2e6e591cd04285e41fb3c46897c9de2c280c1ab
       </View>
     );
   }
