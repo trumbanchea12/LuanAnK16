@@ -63,15 +63,13 @@ class Drawers extends Component {
     return (
       <Drawer.Navigator>
         <Drawer.Screen name="Home" component={HomeStack} />
-        <Drawer.Screen name="contacts" component={Screen1} />
+        <Drawer.Screen name="contacts contacts" component={Screen1} />
         <Drawer.Screen name="Favarites" component={Screen2} />
-        <Drawer.Screen name="Đăng nhập/đăng ký" component={StackLogin} />
+        <Drawer.Screen name="Đăng nhập/đăng ký " component={StackLogin} />
       </Drawer.Navigator>
     );
   }
 }
-
-
 
 export default class Tab extends Component {
   render() {
