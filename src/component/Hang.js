@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, YellowBox, ActivityIndicator } from "react-native";
 import { SearchBar, Header } from 'react-native-elements';
 import { SliderBox } from 'react-native-image-slider-box';
@@ -15,16 +14,6 @@ YellowBox.ignoreWarnings([
 YellowBox.ignoreWarnings([ 
     'Remote debugger is in a background tab which may cause apps to perform slowly. Fix this by foregrounding the tab (or opening it in a separate window).',
 ])
-=======
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
-import { SearchBar, Header } from 'react-native-elements';
-import { SliderBox } from 'react-native-image-slider-box';
-import { Icon } from 'react-native-elements'
-import { FlatList } from 'react-native-gesture-handler';
-import WooCommerceAPI from 'react-native-woocommerce-api';
-
-
->>>>>>> 384342a684741b2d3b11f8e294bd4bb2441a5e56
 
 export default class Hang extends Component {
     constructor(props) {
@@ -37,14 +26,6 @@ export default class Hang extends Component {
                 "https://source.unsplash.com/1024x768/?girl",
                 "https://source.unsplash.com/1024x768/?tree",
             ],
-<<<<<<< HEAD
-            data: [],
-            imgSanPham : [],
-            isLoading: true,
-            refresh: false,
-=======
-
->>>>>>> 384342a684741b2d3b11f8e294bd4bb2441a5e56
         }
     }
 
@@ -55,39 +36,8 @@ export default class Hang extends Component {
     };
 
 
-<<<<<<< HEAD
-
-    componentDidMount() {
-        Api.get('products')
-        .then((response) => response)
-        .then((responseJson) => {
-            this.setState({
-                isLoading: false,
-                data : responseJson,
-                
-            }, () => {
-                console.log(responseJson);
-            })
-            
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
-    }
-
-    render() {
-        if (this.state.isLoading) {
-            return (
-                <View style={{ flex: 1, padding: 20, marginTop: 300 }}>
-                    <ActivityIndicator />
-                </View>
-            )
-        }
-=======
     render() {
         
->>>>>>> 384342a684741b2d3b11f8e294bd4bb2441a5e56
 
         const { search } = this.state;
 
@@ -100,67 +50,6 @@ export default class Hang extends Component {
                         value={search}
                         lightTheme
                         autoCorrect={false}
-<<<<<<< HEAD
-                        containerStyle={{ width: "80%", }}
-                    />
-                    <View style={styles.shopcart}>
-                        <TouchableOpacity
-                            onPress={() => {
-                                console.log("Giỏ hàng")
-                            }}
-                        >
-                            <Icon
-                                name='ios-cart'
-                                type='ionicon'
-                                color='#f1582e'
-                                size={30}
-                            />
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() => {
-                                console.log("Tin nhắn")
-                            }}
-                        >
-                            <Icon
-                                underlayColor='none'
-                                name='ios-chatboxes'
-                                type='ionicon'
-                                color='#f1582e'
-                                size={30}
-                                iconStyle={styles.icon}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <ScrollView>
-                    <SliderBox images={this.state.images}
-                        sliderBoxHeight={150}
-                        onCurrentImagePressed={
-                            index => console.warn(`image ${index} pressed`)
-                        }
-                        dotColor="#FFFFFF"
-                        inactiveDotColor="#90A4AE"
-                        paginationBoxVerticalPadding={20}
-                        autoplay
-                        circleLoop
-                    />
-                    <FlatList
-                        data={this.state.data}
-                        renderItem={({ item }) => (
-                            <TouchableOpacity>
-                                <ItemHang 
-                                id={item.sku} 
-                                img={item.images[0].src} 
-                                name={item.name} 
-                                price={item.regular_price} 
-                                pricesale={item.sale_price}
-                                stock = {item.stock_quantity} />
-                            </TouchableOpacity>
-                            
-                        )}
-                        keyExtractor={item => item.id.toString()}
-                    />
-=======
                         containerStyle={{width: "80%",  }}
                     />
                     <View style = { styles.shopcart}>
@@ -205,7 +94,6 @@ export default class Hang extends Component {
                     autoplay
                     circleLoop
                 />
->>>>>>> 384342a684741b2d3b11f8e294bd4bb2441a5e56
                 </ScrollView>
             </View>
         )
