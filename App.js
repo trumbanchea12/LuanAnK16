@@ -21,7 +21,7 @@ import Tabs2 from "./src/screens/tabs/tab2";
 import Tabs3 from "./src/screens/tabs/tab3";
 
 // Stack Hàng
-import HangHoa from './src/screens/navigation/StackHang';
+import HangHoa from './src/component/Product/StackHang';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();

@@ -8,6 +8,7 @@ import { FlatList } from 'react-native-gesture-handler'
 import Api from '../woocommerceAPI/Api';
 // Component
 import ItemHang from './itemHang';
+
 YellowBox.ignoreWarnings([
     'VirtualizedLists should never be nested', // TODO: Remove when fixed
 ])
@@ -70,6 +71,7 @@ export default class Hang extends Component {
         }
 
         const { search } = this.state;
+        const { navigation } = this.props;
 
         return (
             <View style={styles.container}>
@@ -124,9 +126,16 @@ export default class Hang extends Component {
                         circleLoop
                     />
                     <FlatList
+                    style = {{marginTop: 5}}
                         data={this.state.data}
                         renderItem={({ item }) => (
-                            <TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() =>{
+                                    navigation.navigate('Show Hàng', {
+                                        hinhanh: item.images,
+                                    })
+                                }}
+                            >
                                 <ItemHang 
                                 id={item.sku} 
                                 img={item.images[0].src} 
@@ -147,7 +156,6 @@ export default class Hang extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 19,
         flex: 1
     },
     header: {
