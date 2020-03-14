@@ -10,11 +10,6 @@ export default class Feed extends Component {
           onPress={() => this.props.navigation.navigate("Detail")}
         />
           <Text>abc</Text>
-          <Button
-          title="open drawer"
-          onPress={() => this.props.navigation.openDrawer()}
-        />
-          
       </View>
     );
   }
