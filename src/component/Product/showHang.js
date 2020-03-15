@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
 import { Header } from 'react-native-elements'
 import { FlatList } from 'react-native-gesture-handler';
+import WebView from 'react-native-webview';
 
 
 export default class showHang extends Component {
@@ -15,22 +16,39 @@ export default class showHang extends Component {
 
         const { route } = this.props;
         const { hinhanh } = route.params;
+        const { mieutasp } = route.params;
         console.log(hinhanh);
         return (
-            <View>
+            <ScrollView style={styles.container}>
+                <WebView
+                    originWhitelist={['*']}
+                    source={{ html: mieutasp }}
+                    style={{ height: 250 }}
+                />
                 <FlatList
                     data={hinhanh}
                     renderItem={({ item }) =>
-                        <View>
-                            <Image source={{ uri: item.src }} 
-                                    style={{width: 50, height: 50}}
+                        <View style={styles.hinhanh}>
+                            <Image source={{ uri: item.src }}
+                                style={{ width: 300, height: 300, marginTop: 8 }}
                             />
-                            <Text>{item.src}</Text>
                         </View>
                     }
                     keyExtractor={item => item.position.toString()}
                 />
-            </View>
+            </ScrollView>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    hinhanh: {
+        flex: 1,
+        textAlign: 'center',
+        alignContent: 'center',
+        alignItems: 'center'
+    },
+    container: {
+        flex: 1,
+    }
+})
