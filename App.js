@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { View, Text, Image } from 'react-native'
 
 
 import Feed from "./src/screens/Feed";
