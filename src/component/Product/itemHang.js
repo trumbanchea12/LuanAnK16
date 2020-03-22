@@ -6,7 +6,7 @@ export default class itemHang extends Component {
         return (
             <View style={styles.container}>
                 <View>
-                    <Text style = {{paddingTop: 35}}>Mã SP</Text>
+                    <Text style = {{paddingTop: 35, fontSize: 10}}>Mã SP</Text>
                     <Text style={styles.stt} >{this.props.id}</Text>
                 </View>
                 <Image
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     title: {
         textTransform: 'uppercase',
         padding: 1,
-        fontSize: 20,
+        fontSize: 15,
     },
     stt: {
         alignItems: 'center',

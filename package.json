@@ -31,6 +31,7 @@
     "react-native-tab-view": "^2.13.0",
     "react-native-vector-icons": "^6.6.0",
     "react-native-web": "~0.11.7",
+    "react-native-webview": "^8.1.2",
     "react-native-woocommerce-api": "^1.0.12"
   },
   "devDependencies": {

@@ -133,6 +133,7 @@ export default class Hang extends Component {
                                 onPress={() =>{
                                     navigation.navigate('Show Hàng', {
                                         hinhanh: item.images,
+                                        mieutasp : item.description
                                     })
                                 }}
                             >
