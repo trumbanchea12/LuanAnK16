@@ -7,29 +7,22 @@ import {
   StyleSheet
 } from "react-native";
 import IonIcon from "react-native-vector-icons/Ionicons";
+
 export default class DangNhap extends Component {
   constructor(props) {
     super(props);
     this.state = {
       taikhoan: "",
       matkhau: "",
-      rematkhau: "",
-      dk: "",
-      showPass1: true,
-      press1: false,
-      showPass2: true,
-      press2: false
+      kimtra: "",
+      showPass: true,
+      press: false,
     };
   }
-  showPass1 = () => {
-    if (this.state.press1 == false)
-      this.setState({ showPass1: false, press1: true });
-    else this.setState({ showPass1: true, press1: false });
-  };
-  showPass2 = () => {
-    if (this.state.press2 == false)
-      this.setState({ showPass2: false, press2: true });
-    else this.setState({ showPass2: true, press2: false });
+  showPass = () => {
+    if (this.state.press == false)
+      this.setState({ showPass: false, press: true });
+    else this.setState({ showPass: true, press: false });
   };
 
   render() {
@@ -47,6 +40,7 @@ export default class DangNhap extends Component {
           <TextInput
             style={styles.user}
             placeholder="Username"
+            autoFocus = "true"
             onChangeText={taikhoan => this.setState({ taikhoan })}
           ></TextInput>
         </View>
@@ -55,67 +49,38 @@ export default class DangNhap extends Component {
           <TextInput
             style={styles.pass}
             placeholder="Password"
-            secureTextEntry={this.state.showPass1}
+            secureTextEntry={this.state.showPass}
             onChangeText={matkhau => this.setState({ matkhau })}
           ></TextInput>
 
           <TouchableOpacity
             style={styles.btneye}
-            onPress={this.showPass1.bind(this)}
+            onPress={this.showPass.bind(this)}
           >
             <IonIcon
-              name={this.state.press1 == false ? "ios-eye" : "ios-eye-off"}
+              name={this.state.press == false ? "ios-eye" : "ios-eye-off"}
               size={16}
               color="blue"
             />
           </TouchableOpacity>
         </View>
-
-        <View style={styles.inputcontainer}>
-          <IonIcon style={styles.icon} name="ios-lock" size={16} color="blue" />
-          <TextInput
-            style={styles.pass}
-            placeholder="Confirm Password"
-            secureTextEntry={this.state.showPass2}
-            onChangeText={rematkhau => this.setState({ rematkhau })}
-          ></TextInput>
-
-          <TouchableOpacity
-            style={styles.btneye}
-            onPress={this.showPass2.bind(this)}
-          >
-            <IonIcon
-              name={this.state.press2 == false ? "ios-eye" : "ios-eye-off"}
-              size={16}
-              color="blue"
-            />
-          </TouchableOpacity>
-        </View>
-
         <TouchableOpacity
           style={styles.button}
-          onPress={() =>
-            console.log(
-              this.state.taikhoan,
-              this.state.matkhau,
-              this.state.rematkhau,
-              this.state.rematkhau === this.state.matkhau
-                ? "confirm password not correct"
-                : "su"
-            )
-          }
+          onPress={()=> console.log(this.state.taikhoan,this.state.matkhau),() => this.props.navigation.navigate('Home')}
         >
-          <Text style={styles.buttontext}>Đăng ký</Text>
+          <Text style={styles.buttontext} >đăng nhập</Text>
         </TouchableOpacity>
-
         <View style={styles.add}>
           <TouchableOpacity>
             <Text style={styles.acc}>Quên mật khẩu</Text>
           </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('DangKy')}>
+            <Text style={styles.acc}>Đăng ký</Text>
+          </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("DangNhap")}
+            onPress={() => this.props.navigation.navigate('Homescreen')}
           >
-            <Text style={styles.acc}>Đăng nhập</Text>
+            <Text style={styles.acc}>Trang chủ</Text>
           </TouchableOpacity>
         </View>
       </View>

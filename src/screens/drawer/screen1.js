@@ -3,7 +3,7 @@ import {View, Text} from "react-native";
 export default class screen1 extends Component {
     render() {
         return (
-            <View><Text>1</Text></View>
+            <View style={{justifyContent: 'center', alignItems: 'center'}}><Text>Contact With Us</Text></View>
         )
     }
 }

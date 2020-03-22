@@ -100,8 +100,8 @@ export default class DangNhap extends Component {
               this.state.matkhau,
               this.state.rematkhau,
               this.state.rematkhau === this.state.matkhau
-                ? "confirm password not correct"
-                : "su"
+                ? "correct"
+                : "confirm password not correct"
             )
           }
         >
@@ -117,6 +117,12 @@ export default class DangNhap extends Component {
           >
             <Text style={styles.acc}>Đăng nhập</Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Homescreen')}
+          >
+            <Text style={styles.acc}>Trang chủ</Text>
+          </TouchableOpacity>
+          
         </View>
       </View>
     );

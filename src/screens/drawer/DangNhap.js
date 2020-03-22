@@ -14,9 +14,9 @@ export default class DangNhap extends Component {
     this.state = {
       taikhoan: "",
       matkhau: "",
-      dk: "",
+      kimtra: "",
       showPass: true,
-      press: false
+      press: false,
     };
   }
   showPass = () => {
@@ -40,6 +40,7 @@ export default class DangNhap extends Component {
           <TextInput
             style={styles.user}
             placeholder="Username"
+            autoFocus = "true"
             onChangeText={taikhoan => this.setState({ taikhoan })}
           ></TextInput>
         </View>
@@ -65,7 +66,7 @@ export default class DangNhap extends Component {
         </View>
         <TouchableOpacity
           style={styles.button}
-          onPress={()=> console.log(this.state.taikhoan,this.state.matkhau)}
+          onPress={()=> console.log(this.state.taikhoan,this.state.matkhau),() => this.props.navigation.navigate('Home')}
         >
           <Text style={styles.buttontext} >đăng nhập</Text>
         </TouchableOpacity>
