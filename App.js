@@ -8,14 +8,8 @@ import Drawers2 from "./src/component/Drawers/Drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-<<<<<<< HEAD
 import { createDrawerNavigator, DrawerItems } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
-=======
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { View, Text, Image } from 'react-native'
->>>>>>> 030438c70186a6cfea464a70b22490ddd3867c8a
 
 //import { View, Text, Image, SafeAreaView, ScrollView } from "react-native";
 
