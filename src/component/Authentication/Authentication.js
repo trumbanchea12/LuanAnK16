@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage,View, Text, TouchableOpacity, Image, StyleSheet, TextInput, ScrollView, Alert } from 'react-native';
+import { AsyncStorage, View, Text, TouchableOpacity, Image, StyleSheet, TextInput, ScrollView, Alert } from 'react-native';
 // Redux
 import { actSignUpRequest } from '../../action/SignUpAction';
 import { actSignInRequest } from '../../action/UserAction';
@@ -72,9 +72,9 @@ class Authantication extends Component {
         const { signup, user } = this.props;
 
         const signInJSX = (
-            <ScrollView>
+            <ScrollView keyboardShouldPersistTaps="handled">
                 <TextInput style={inputStyle} placeholder="Enter your Email / Username"
-                    onChangeText ={(text) => {
+                    onChangeText={(text) => {
                         this.setState({
                             info_SignIn: {
                                 ...this.state.info_SignIn,
@@ -82,9 +82,9 @@ class Authantication extends Component {
                             }
                         })
                     }}
-                 />
+                />
                 <TextInput style={inputStyle} placeholder="Enter your password"
-                    onChangeText = {(text) => {
+                    onChangeText={(text) => {
                         this.setState({
                             info_SignIn: {
                                 ...this.state.info_SignIn,
@@ -92,16 +92,15 @@ class Authantication extends Component {
                             }
                         })
                     }}
-                 />
+                />
                 <TouchableOpacity style={bigButton}
-                    onPress ={() => 
-                        {
-                            this.onSignIn(this.state.info_SignIn);
-                            if(user.checked == "success"){
-                                this.props.navigation.navigate('Shop');
-                            }
-                            console.log("Thông báo Đăng nhập : " + JSON.stringify(user.infoUser) + " Check " + user.checked);
-                        }
+                    onPress={() => {
+                        this.onSignIn(this.state.info_SignIn);
+                        // if (user.checked == "success") {
+                        //     this.props.navigation.navigate('Shop');
+                        // }
+                        // console.log("Thông báo Đăng nhập : " + JSON.stringify(user.infoUser) + " Check " + user.checked);
+                    }
                     }
                 >
                     <Text style={buttonText} >SIGN IN NOW</Text>
@@ -224,7 +223,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onSignUp: (info) => { dispatch(actSignUpRequest(info)) },
-        onSignIn: (info) => {dispatch(actSignInRequest(info)) }
+        onSignIn: (info) => { dispatch(actSignInRequest(info)) }
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Authantication);
