@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { actSignOut } from '../../action/UserAction';
 import {
     Avatar,
     Title,
@@ -14,9 +16,19 @@ import {
     DrawerContentScrollView,
     DrawerItem
 } from '@react-navigation/drawer';
-import Logo from '../../media/temp/profile.png';
+import Logo from '../../media/temp/ava.png';
+
+
+const url = 'http://vaomua.club/public/user/image/images/'; // hinh anh
 
 function MenuLogin(props) {
+    
+        onSignOut = () =>{
+            this.props.onSignOut();
+        }
+
+        const user  = props.user.infoUser;
+
         return (
             <View style={{flex:1}}>
             <DrawerContentScrollView {...props}>
@@ -24,11 +36,11 @@ function MenuLogin(props) {
                     <View style={styles.userInfoSection}>
                         <View style={{flexDirection:'row',marginTop: 15}}>
                             <Avatar.Image 
-                                source={Logo}
+                                source={{ uri : user.avatar == "null" ? Logo : `${url}${user.avatar}`}}
                                 size={50}
                             />
                             <View style={{marginLeft:15, flexDirection:'column'}}>
-                                <Title style={styles.title}>Khách hàng</Title>
+                                <Title style={styles.title}>{user.name}</Title>
                             </View>
                         </View>
                     </View>
@@ -44,6 +56,7 @@ function MenuLogin(props) {
                         />
                         <DrawerItem 
                             label="Sign Out"
+                            onPress={() => {props.onSignOut()}}
                         />
                     </Drawer.Section>
                 </View>
@@ -51,7 +64,23 @@ function MenuLogin(props) {
         </View>
         );
 }
-export default MenuLogin
+
+
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+
+
+const mapDispatchTopProps = dispatch => {
+    return {
+        onSignOut : () => { dispatch(actSignOut()) },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchTopProps )(MenuLogin);
+
 const styles = StyleSheet.create({
     drawerContent: {
       flex: 1,

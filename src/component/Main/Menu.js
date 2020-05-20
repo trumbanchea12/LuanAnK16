@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Main from './Main';
 import Shop from './Shop/Shop';
@@ -25,7 +26,7 @@ const Drawer = createDrawerNavigator();
 //     );
 // }
 
-export default class Menu extends Component {
+class Menu extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -47,8 +48,9 @@ export default class Menu extends Component {
     // }
 
     render() {
+        const { user } = this.props;
         const loginJSX = (
-            <Drawer.Navigator initialRouteName="Shop" drawerContent={props => <MenuLogin {...props} />} >
+            <Drawer.Navigator initialRouteName="Shop" drawerContent={(props) => <MenuLogin {...props} />} >
                 <Drawer.Screen name="Shop" component={Shop} />
                 <Drawer.Screen name="Main" component={Main} />
                 <Drawer.Screen name="Authentication" component={Authentication} />
@@ -62,8 +64,14 @@ export default class Menu extends Component {
                 <Drawer.Screen name="Sign In" component={Main} />
             </Drawer.Navigator>
         );
-        const mainJSX = this.state.isLogedIn ? loginJSX : logoutJSX;
+        const mainJSX = user.checked == "success" ? loginJSX : logoutJSX;
         return mainJSX
     }
 }
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
 
+export default connect(mapStateToProps, null)(Menu);

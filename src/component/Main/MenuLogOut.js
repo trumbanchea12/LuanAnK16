@@ -14,7 +14,7 @@ import {
     DrawerContentScrollView,
     DrawerItem
 } from '@react-navigation/drawer';
-import Logo from '../../media/temp/profile.png';
+import Logo from '../../media/temp/ava.png';
 function MenuLogOut(props) {
         return (
             <View style={{flex:1}}>

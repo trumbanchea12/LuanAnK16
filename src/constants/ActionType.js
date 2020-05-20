@@ -1,6 +1,7 @@
 // Đăng nhập - Thông tin User
 export const SIGN_IN = 'SIGN_IN';
-export const SIGN_IN_FAIL = 'SIGN_IN_FAIL';
+export const SIGN_OUT = 'SIGN_OUT';
+export const CHANGE_INFO = 'CHANGE_INFO';
 
 // Dang ki
 
